@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Z6jC8u4g4wa6xaU9U63ckL/C5WMoOxSZY034DuIaqcgVX827EShkY92FxdMX59ZmVQs7ABFpf9yMmfua5PEkAQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\donizetti.local\\Downloads\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\Questao2\\Questao2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\donizetti.local\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

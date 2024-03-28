@@ -1,0 +1,14 @@
+C:\Users\donizetti.local\Downloads\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\Questao1\obj\Debug\net6.0\Questao1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\donizetti.local\Downloads\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\Questao1\obj\Debug\net6.0\Questao1.AssemblyInfoInputs.cache
+C:\Users\donizetti.local\Downloads\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\Questao1\obj\Debug\net6.0\Questao1.AssemblyInfo.cs
+C:\Users\donizetti.local\Downloads\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\Questao1\obj\Debug\net6.0\Questao1.csproj.CoreCompileInputs.cache
+C:\Users\donizetti.local\Downloads\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\Questao1\bin\Debug\net6.0\Questao1.exe
+C:\Users\donizetti.local\Downloads\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\Questao1\bin\Debug\net6.0\Questao1.deps.json
+C:\Users\donizetti.local\Downloads\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\Questao1\bin\Debug\net6.0\Questao1.runtimeconfig.json
+C:\Users\donizetti.local\Downloads\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\Questao1\bin\Debug\net6.0\Questao1.dll
+C:\Users\donizetti.local\Downloads\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\Questao1\bin\Debug\net6.0\Questao1.pdb
+C:\Users\donizetti.local\Downloads\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\Questao1\obj\Debug\net6.0\Questao1.dll
+C:\Users\donizetti.local\Downloads\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\Questao1\obj\Debug\net6.0\refint\Questao1.dll
+C:\Users\donizetti.local\Downloads\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\Questao1\obj\Debug\net6.0\Questao1.pdb
+C:\Users\donizetti.local\Downloads\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\Questao1\obj\Debug\net6.0\Questao1.genruntimeconfig.cache
+C:\Users\donizetti.local\Downloads\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\Questao1\obj\Debug\net6.0\ref\Questao1.dll
