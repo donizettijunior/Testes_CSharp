@@ -2,6 +2,7 @@
 using Questao5.Domain.BO;
 using Questao5.Domain.Enumerators;
 using Questao5.Infrastructure.Interfaces;
+using Questao5.Infrastructure.Services;
 using System.Globalization;
 
 namespace Questao5.Infrastructure.Business
@@ -15,6 +16,16 @@ namespace Questao5.Infrastructure.Business
         public ContaBancariaBusiness(IContaBancariaService contabancariaservice)
         {
             _contabancariaservice = contabancariaservice;
+
+            culture = CultureInfo.CreateSpecificCulture("en-US");
+            CultureInfo.DefaultThreadCurrentCulture = culture;
+            CultureInfo.DefaultThreadCurrentUICulture = culture;
+        }
+
+        public ContaBancariaBusiness()
+        {
+            if (_contabancariaservice == null)
+                _contabancariaservice = new ContaBancariaService();
 
             culture = CultureInfo.CreateSpecificCulture("en-US");
             CultureInfo.DefaultThreadCurrentCulture = culture;

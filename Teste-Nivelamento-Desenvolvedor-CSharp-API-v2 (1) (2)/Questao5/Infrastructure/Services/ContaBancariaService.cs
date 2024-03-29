@@ -24,6 +24,19 @@ namespace Questao5.Infrastructure.Services
             CultureInfo.DefaultThreadCurrentUICulture = culture;
         }
 
+        public ContaBancariaService()
+        {
+            if (_idatabasebootstrap == null)
+            {
+                _idatabasebootstrap = new DatabaseBootstrap();
+                _idatabasebootstrap.Setup();
+            }
+
+            culture = CultureInfo.CreateSpecificCulture("en-US");
+            CultureInfo.DefaultThreadCurrentCulture = culture;
+            CultureInfo.DefaultThreadCurrentUICulture = culture;
+        }
+
         public Retorno ConsultaSaldo(string nrocontacorrente)
         {
             RetornoSaldo retornoSaldo = new()

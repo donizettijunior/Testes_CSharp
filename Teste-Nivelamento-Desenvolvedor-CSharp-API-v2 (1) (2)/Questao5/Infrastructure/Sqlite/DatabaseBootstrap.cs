@@ -11,9 +11,27 @@ namespace Questao5.Infrastructure.Sqlite
 
         private readonly DatabaseConfig databaseConfig;
 
+        private static string _databasename;
+
         public DatabaseBootstrap(DatabaseConfig databaseConfig)
         {
             this.databaseConfig = databaseConfig;
+            _databasename = this.databaseConfig.Name;
+            culture = CultureInfo.CreateSpecificCulture("en-US");
+            CultureInfo.DefaultThreadCurrentCulture = culture;
+            CultureInfo.DefaultThreadCurrentUICulture = culture;
+        }
+
+        public DatabaseBootstrap()
+        {
+            if (databaseConfig == null)
+            {
+                databaseConfig = new DatabaseConfig();
+
+                if (databaseConfig.Name == null)
+                    _databasename = "Data Source=database.sqlite";
+            }
+
             culture = CultureInfo.CreateSpecificCulture("en-US");
             CultureInfo.DefaultThreadCurrentCulture = culture;
             CultureInfo.DefaultThreadCurrentUICulture = culture;
@@ -21,7 +39,7 @@ namespace Questao5.Infrastructure.Sqlite
 
         public void Setup()
         {
-            using var connection = new SqliteConnection(databaseConfig.Name);
+            using var connection = new SqliteConnection(_databasename);
 
             var table = connection.Query<string>("SELECT name FROM sqlite_master WHERE type='table' AND (name = 'contacorrente' or name = 'movimento' or name = 'idempotencia');");
             var tableName = table.FirstOrDefault();
@@ -61,7 +79,7 @@ namespace Questao5.Infrastructure.Sqlite
 
         public SqliteConnection GetConecction()
         {
-            return new SqliteConnection(databaseConfig.Name);
+            return new SqliteConnection(_databasename);
         }
 
         public DataTable ExecuteQuery(string query)
