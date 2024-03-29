@@ -7,11 +7,16 @@ namespace Questao5.Infrastructure.Sqlite
 {
     public class DatabaseBootstrap : IDatabaseBootstrap
     {
+        private CultureInfo culture;
+
         private readonly DatabaseConfig databaseConfig;
 
         public DatabaseBootstrap(DatabaseConfig databaseConfig)
         {
             this.databaseConfig = databaseConfig;
+            culture = CultureInfo.CreateSpecificCulture("en-US");
+            CultureInfo.DefaultThreadCurrentCulture = culture;
+            CultureInfo.DefaultThreadCurrentUICulture = culture;
         }
 
         public void Setup()
@@ -61,10 +66,6 @@ namespace Questao5.Infrastructure.Sqlite
 
         public DataTable ExecuteQuery(string query)
         {
-            CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
-            CultureInfo.DefaultThreadCurrentCulture = culture;
-            CultureInfo.DefaultThreadCurrentUICulture = culture;
-
             DataTable dataTable = new();
             using SqliteConnection connection = GetConecction();
             connection.Open();
@@ -83,10 +84,6 @@ namespace Questao5.Infrastructure.Sqlite
 
         public bool SaveQueryNoParameters(string query)
         {
-            CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
-            CultureInfo.DefaultThreadCurrentCulture = culture;
-            CultureInfo.DefaultThreadCurrentUICulture = culture;
-
             using SqliteConnection connection = GetConecction();
             connection.Open();
 
@@ -112,10 +109,6 @@ namespace Questao5.Infrastructure.Sqlite
 
         public bool SaveQueryWithParameters(string query, List<SqliteParameter[]> parametros)
         {
-            CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
-            CultureInfo.DefaultThreadCurrentCulture = culture;
-            CultureInfo.DefaultThreadCurrentUICulture = culture;
-
             using SqliteConnection connection = GetConecction();
             connection.Open();
 

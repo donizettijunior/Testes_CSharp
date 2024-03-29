@@ -9,7 +9,15 @@ namespace Questao5.Infrastructure.Interfaces
 
         bool GetStatusContaCorrente(string nrocontacorrente);
 
-        Retorno MovimentoContaCorrente(string nrocontacorrente, DateTime? datamovimento, TipoMovimento? tipomovimento, float? valor);
+        string GetChaveIdempotencia(string idrequisicao);
+
+        string GetResultadoIdempotencia(string idrequisicao);
+
+        string GetRequisicaoIdempotencia(string idrequisicao);
+
+        bool SetIdempotencia(string requisicao);
+
+        Retorno MovimentoContaCorrente(string idrequisicao, string nrocontacorrente, DateTime? datamovimento, TipoMovimento? tipomovimento, float? valor);
 
         Retorno ConsultaSaldo(string nrocontacorrente);
     }

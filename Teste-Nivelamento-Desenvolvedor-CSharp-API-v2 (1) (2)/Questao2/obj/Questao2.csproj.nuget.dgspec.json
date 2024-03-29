@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\donizetti.local\\Downloads\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\Questao2\\Questao2.csproj": {}
+    "C:\\MeuGit\\Testes_CSharp\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\Questao2\\Questao2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\donizetti.local\\Downloads\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\Questao2\\Questao2.csproj": {
+    "C:\\MeuGit\\Testes_CSharp\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\Questao2\\Questao2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\donizetti.local\\Downloads\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\Questao2\\Questao2.csproj",
+        "projectUniqueName": "C:\\MeuGit\\Testes_CSharp\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\Questao2\\Questao2.csproj",
         "projectName": "Questao2",
-        "projectPath": "C:\\Users\\donizetti.local\\Downloads\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\Questao2\\Questao2.csproj",
+        "projectPath": "C:\\MeuGit\\Testes_CSharp\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\Questao2\\Questao2.csproj",
         "packagesPath": "C:\\Users\\donizetti.local\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\donizetti.local\\Downloads\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\Questao2\\obj\\",
+        "outputPath": "C:\\MeuGit\\Testes_CSharp\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\Questao2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

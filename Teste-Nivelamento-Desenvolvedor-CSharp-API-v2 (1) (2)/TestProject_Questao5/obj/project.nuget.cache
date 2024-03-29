@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ueSAJPB+hdZJUUCvTlhKWWU+V00rH6+3AgjZhGXJQVplRiHcgxwC1XBEuhCXrQBkn4fqOtA+BAKzeoM6roKbRw==",
+  "dgSpecHash": "hF9jEUhKX4uS9KlAV2epZ/7lrNJcTxR6iBDk6LEKOyVATpTsq6slF8zt6uKKuPacZb+ZBmkNLwAteF6NHnw0ew==",
   "success": true,
-  "projectFilePath": "C:\\Users\\donizetti.local\\Downloads\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\TestProject_Questao5\\TestProject_Questao5.csproj",
+  "projectFilePath": "C:\\MeuGit\\Testes_CSharp\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\TestProject_Questao5\\TestProject_Questao5.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\donizetti.local\\.nuget\\packages\\coverlet.collector\\6.0.2\\coverlet.collector.6.0.2.nupkg.sha512",
     "C:\\Users\\donizetti.local\\.nuget\\packages\\dapper\\2.0.35\\dapper.2.0.35.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aLanQHCIOhrIh5Gv657we52FZ0ZhhdRK53vxaCMplFW1LOeB3YiC2VTYYPNHmkGvpn0B6nCDSF3/bk5iA9OSaw==",
+  "dgSpecHash": "WOUdPUFq0DxolkEAFC5Wu/v+ndEot3IF/kIM3KUcxqgoc85OFF00rRQF0ab63IGOkzizXzpQ4/e957Rys5veiw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\donizetti.local\\Downloads\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\Questao5\\Questao5.csproj",
+  "projectFilePath": "C:\\MeuGit\\Testes_CSharp\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\Questao5\\Questao5.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\donizetti.local\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\donizetti.local\\.nuget\\packages\\coverlet.msbuild\\3.1.2\\coverlet.msbuild.3.1.2.nupkg.sha512",

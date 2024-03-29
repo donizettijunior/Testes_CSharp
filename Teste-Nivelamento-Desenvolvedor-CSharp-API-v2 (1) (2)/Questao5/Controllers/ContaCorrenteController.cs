@@ -28,12 +28,12 @@ namespace Questao5.Controllers
         }
 
         [HttpPost(Name = "MovimentoContaCorrente")]
-        public Retorno Post([FromForm][Required(ErrorMessage = "O parâmetro 'nrocontacorrente' é obrigatório.")] string nrocontacorrente,
-                            [FromForm][Required(ErrorMessage = "O parâmetro 'datamovimento' é obrigatório.")] string datamovimento,
+        public Retorno Post([FromForm][Required(ErrorMessage = "O parâmetro 'idrequisicao' é obrigatório.")] string idrequisicao,
+                            [FromForm][Required(ErrorMessage = "O parâmetro 'nrocontacorrente' é obrigatório.")] string nrocontacorrente,
                             [FromForm][Required(ErrorMessage = "O parâmetro 'tipomovimento' é obrigatório.")] TipoMovimento tipomovimento,
                             [FromForm][Required(ErrorMessage = "O parâmetro 'valor' é obrigatório.")] string valor)
         {
-            return _icontabancariabusiness.MovimentoContaCorrente(nrocontacorrente, datamovimento, tipomovimento, valor);
+            return _icontabancariabusiness.MovimentoContaCorrente(idrequisicao, nrocontacorrente, DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"), tipomovimento, valor);
         }
     }
 }

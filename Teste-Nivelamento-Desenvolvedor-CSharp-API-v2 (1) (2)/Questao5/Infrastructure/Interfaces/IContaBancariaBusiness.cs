@@ -5,8 +5,8 @@ namespace Questao5.Infrastructure.Interfaces
 {
     public interface IContaBancariaBusiness
     {
-        Retorno MovimentoContaCorrente(string nrocontacorrente, string datamovimento, TipoMovimento? tipomovimento, string valor);
-
         Retorno ConsultaSaldo(string nrocontacorrente);
+
+        Retorno MovimentoContaCorrente(string idrequisicao, string nrocontacorrente, string datamovimento, TipoMovimento? tipomovimento, string valor);
     }
 }

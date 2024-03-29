@@ -2865,11 +2865,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\donizetti.local\\Downloads\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\TestProject_Questao5\\TestProject_Questao5.csproj",
+      "projectUniqueName": "C:\\MeuGit\\Testes_CSharp\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\TestProject_Questao5\\TestProject_Questao5.csproj",
       "projectName": "TestProject_Questao5",
-      "projectPath": "C:\\Users\\donizetti.local\\Downloads\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\TestProject_Questao5\\TestProject_Questao5.csproj",
+      "projectPath": "C:\\MeuGit\\Testes_CSharp\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\TestProject_Questao5\\TestProject_Questao5.csproj",
       "packagesPath": "C:\\Users\\donizetti.local\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\donizetti.local\\Downloads\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\TestProject_Questao5\\obj\\",
+      "outputPath": "C:\\MeuGit\\Testes_CSharp\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\TestProject_Questao5\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -2891,8 +2891,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\donizetti.local\\Downloads\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\Questao5\\Questao5.csproj": {
-              "projectPath": "C:\\Users\\donizetti.local\\Downloads\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\Questao5\\Questao5.csproj"
+            "C:\\MeuGit\\Testes_CSharp\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\Questao5\\Questao5.csproj": {
+              "projectPath": "C:\\MeuGit\\Testes_CSharp\\Teste-Nivelamento-Desenvolvedor-CSharp-API-v2 (1) (2)\\Questao5\\Questao5.csproj"
             }
           }
         }

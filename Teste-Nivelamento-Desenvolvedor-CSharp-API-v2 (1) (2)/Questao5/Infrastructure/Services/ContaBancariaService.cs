@@ -1,19 +1,27 @@
 ﻿using Microsoft.Data.Sqlite;
+using Newtonsoft.Json;
 using Questao5.Domain.BO;
 using Questao5.Domain.Enumerators;
 using Questao5.Infrastructure.Interfaces;
 using Questao5.Infrastructure.Sqlite;
 using System.Data;
+using System.Globalization;
 
 namespace Questao5.Infrastructure.Services
 {
     public class ContaBancariaService : IContaBancariaService
     {
+        private CultureInfo culture;
+
         private readonly IDatabaseBootstrap _idatabasebootstrap;
 
         public ContaBancariaService(IDatabaseBootstrap idatabasebootstrap)
         {
             _idatabasebootstrap = idatabasebootstrap;
+
+            culture = CultureInfo.CreateSpecificCulture("en-US");
+            CultureInfo.DefaultThreadCurrentCulture = culture;
+            CultureInfo.DefaultThreadCurrentUICulture = culture;
         }
 
         public Retorno ConsultaSaldo(string nrocontacorrente)
@@ -67,7 +75,7 @@ namespace Questao5.Infrastructure.Services
                     title = "Erro",
                     status = 400,
                     traceId = "api/MovimentoContaCorrente",
-                    errors = new { error = "Conta Corrente Não Cadastrada ou Inexistente. Verifique!" },
+                    errors = new { error = "Problemas ao consultar Saldo. Tente Novamente!" },
                     Data = retornoSaldo
                 };
 
@@ -86,10 +94,13 @@ namespace Questao5.Infrastructure.Services
             }
         }
 
-        public Retorno MovimentoContaCorrente(string nrocontacorrente, DateTime? datamovimento, TipoMovimento? tipomovimento, float? valor)
+        public Retorno MovimentoContaCorrente(string idrequisicao, string nrocontacorrente, DateTime? datamovimento, TipoMovimento? tipomovimento, float? valor)
         {
+            Retorno objretorno;
+
             string hashid = Guid.NewGuid().ToString("D").ToUpper();
 
+            //*** Monta os paramêtros para realização do insert
             List<SqliteParameter[]> parametros = new()
             {
                 new SqliteParameter[] {
@@ -105,27 +116,45 @@ namespace Questao5.Infrastructure.Services
                            " values (@idmovimento, @idcontacorrente, @datamovimento, @tipomovimento, @valor)";
 
             if (_idatabasebootstrap.SaveQueryWithParameters(query, parametros))
-                return new()
+            {
+                objretorno = new()
                 {
                     type = "SUCCESS",
                     title = "Sucesso",
                     status = 200,
                     traceId = "api/MovimentoContaCorrente",
                     errors = new object(),
-                    Data = new { idmovimentogerado = hashid },
+                    Data = new
+                    {
+                        idmovimentogerado = hashid,
+                        idrequisicao,
+                        nrocontacorrente,
+                        datamovimento,
+                        tipomovimento,
+                        valor
+                    },
                 };
+
+                UpdateIdempotencia(GetChaveIdempotencia(idrequisicao), JsonConvert.SerializeObject(objretorno));
+
+                return objretorno;
+            }
             else
-                return new()
+            {
+                objretorno = new()
                 {
                     type = "ERROR",
                     title = "Erro",
                     status = 400,
                     traceId = "api/MovimentoContaCorrente",
-                    errors = new { error = "Problemas durante a gravação da movimentação. Contate Administrador do Sistema!" },
+                    errors = new { error = "Problemas durante realização da movimentação. Tente Novamente!" },
                     Data = new object()
                 };
 
-            
+                UpdateIdempotencia(GetChaveIdempotencia(idrequisicao), JsonConvert.SerializeObject(objretorno));
+
+                return objretorno;
+            }            
         }
 
         public bool GetStatusContaCorrente(string nrocontacorrente)
@@ -170,6 +199,112 @@ namespace Questao5.Infrastructure.Services
             catch
             {
                 return "";
+            }
+        }
+
+        public string GetChaveIdempotencia(string idrequisicao)
+        {
+            try
+            {
+                string query = " select chave_idempotencia              " +
+                               "   from idempotencia                    " +
+                               " where requisicao like '%idrequisicao = " + idrequisicao + "%'";
+
+                DataTable dt = _idatabasebootstrap.ExecuteQuery(query);
+
+                object requisicao = dt.Rows[0][0];
+                return requisicao != DBNull.Value ? requisicao.ToString() : null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public string GetRequisicaoIdempotencia(string idrequisicao)
+        {
+            try
+            {
+                string query = " select requisicao                      " +
+                               "   from idempotencia                    " +
+                               " where requisicao like '%idrequisicao = " + idrequisicao + "%'";
+
+                DataTable dt = _idatabasebootstrap.ExecuteQuery(query);
+
+                object requisicao = dt.Rows[0][0];
+                return requisicao != DBNull.Value ? requisicao.ToString() : null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public string GetResultadoIdempotencia(string idrequisicao)
+        {
+            try
+            {
+                string query = " select resultado                       " +
+                               "   from idempotencia                    " +
+                               " where requisicao like '%idrequisicao = " + idrequisicao + "%'";
+
+                DataTable dt = _idatabasebootstrap.ExecuteQuery(query);
+
+                object requisicao = dt.Rows[0][0];
+                return requisicao != DBNull.Value ? requisicao.ToString() : null;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public bool SetIdempotencia(string requisicao)
+        {
+            try
+            {
+                string hashid = Guid.NewGuid().ToString("D").ToUpper();
+
+                List<SqliteParameter[]> parametros = new()
+                {
+                    new SqliteParameter[] {
+                        new("@chave_idempotencia", hashid),
+                        new("@requisicao", requisicao)
+                    }
+                };
+
+                string query = " insert into idempotencia (chave_idempotencia, requisicao) " +
+                               " values (@chave_idempotencia, @requisicao)";
+
+                return _idatabasebootstrap.SaveQueryWithParameters(query, parametros);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private bool UpdateIdempotencia(string chaveidempotencia, string resultado)
+        {
+            try
+            {
+                List<SqliteParameter[]> parametros = new()
+                {
+                    new SqliteParameter[] {
+                        new("@chave_idempotencia", chaveidempotencia),
+                        new("@resultado", resultado)
+                    }
+                };
+
+                string query = " Update idempotencia Set                        " +
+                               "   resultado = @resultado                       " +
+                               " where chave_idempotencia = @chave_idempotencia ";
+
+                return _idatabasebootstrap.SaveQueryWithParameters(query, parametros);
+            }
+            catch
+            {
+                return false;
             }
         }
     }
