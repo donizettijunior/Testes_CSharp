@@ -1,10 +1,9 @@
-using NUnit.Framework;
 using Questao5.Domain.BO;
 using Questao5.Infrastructure.Interfaces;
 
 namespace TestProject_Questao5
 {
-    [TestFixture]
+    [TestClass]
     public class UnitTest1
     {
         private readonly IContaBancariaBusiness _icontabancariabusiness;
@@ -14,18 +13,18 @@ namespace TestProject_Questao5
             _icontabancariabusiness = icontabancariabusiness;
         }
 
-        [Test]
+        [TestMethod]
         public void TesteGet_RetornaOk()
         {
             Retorno retorno = _icontabancariabusiness.ConsultaSaldo("123");
-            NUnit.Framework.Assert.Equals(200, retorno.status);
+            Assert.Equals(200, retorno.status);
         }
 
-        [Test]
+        [TestMethod]
         public void TesteGet_RetornaErro()
         {
             Retorno retorno = _icontabancariabusiness.ConsultaSaldo("-1");
-            NUnit.Framework.Assert.Equals(400, retorno.status);
+            Assert.Equals(400, retorno.status);
         }
     }
 }

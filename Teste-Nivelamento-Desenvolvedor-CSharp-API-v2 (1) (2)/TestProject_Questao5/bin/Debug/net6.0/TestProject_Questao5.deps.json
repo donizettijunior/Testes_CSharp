@@ -21,14 +21,11 @@
         }
       },
       "coverlet.collector/6.0.2": {},
-      "Dapper/2.0.35": {
-        "dependencies": {
-          "System.Reflection.Emit.Lightweight": "4.7.0"
-        },
+      "Dapper/2.1.35": {
         "runtime": {
-          "lib/netstandard2.0/Dapper.dll": {
+          "lib/net5.0/Dapper.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.0.35.21366"
+            "fileVersion": "2.1.35.13827"
           }
         }
       },
@@ -858,7 +855,6 @@
       },
       "System.Diagnostics.DiagnosticSource/5.0.0": {},
       "System.Memory/4.5.3": {},
-      "System.Reflection.Emit.Lightweight/4.7.0": {},
       "System.Reflection.Metadata/1.6.0": {},
       "System.Security.Cryptography.ProtectedData/4.4.0": {
         "runtime": {
@@ -878,13 +874,12 @@
       },
       "Questao5/1.0.0": {
         "dependencies": {
-          "Dapper": "2.0.35",
+          "Dapper": "2.1.35",
           "FluentAssertions": "6.7.0",
           "MediatR": "11.0.0",
           "MediatR.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.28",
           "Microsoft.Data.Sqlite": "3.1.6",
-          "Microsoft.NET.Test.Sdk": "17.9.0",
           "Swashbuckle.AspNetCore": "6.2.3"
         },
         "runtime": {
@@ -914,12 +909,12 @@
       "path": "coverlet.collector/6.0.2",
       "hashPath": "coverlet.collector.6.0.2.nupkg.sha512"
     },
-    "Dapper/2.0.35": {
+    "Dapper/2.1.35": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-/xAgd8BO8EDnJ0sURWEV8LptHHvTKxoYiT63YUF2U/yWE2VyUCqR2jcrtEyNngT9Kjzppecz95UKiBla3PnR7g==",
-      "path": "dapper/2.0.35",
-      "hashPath": "dapper.2.0.35.nupkg.sha512"
+      "sha512": "sha512-YKRwjVfrG7GYOovlGyQoMvr1/IJdn+7QzNXJxyMh0YfFF5yvDmTYaJOVYWsckreNjGsGSEtrMTpnzxTUq/tZQw==",
+      "path": "dapper/2.1.35",
+      "hashPath": "dapper.2.1.35.nupkg.sha512"
     },
     "FluentAssertions/6.7.0": {
       "type": "package",
@@ -1186,13 +1181,6 @@
       "sha512": "sha512-3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
       "path": "system.memory/4.5.3",
       "hashPath": "system.memory.4.5.3.nupkg.sha512"
-    },
-    "System.Reflection.Emit.Lightweight/4.7.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-a4OLB4IITxAXJeV74MDx49Oq2+PsF6Sml54XAFv+2RyWwtDBcabzoxiiJRhdhx+gaohLh4hEGCLQyBozXoQPqA==",
-      "path": "system.reflection.emit.lightweight/4.7.0",
-      "hashPath": "system.reflection.emit.lightweight.4.7.0.nupkg.sha512"
     },
     "System.Reflection.Metadata/1.6.0": {
       "type": "package",
