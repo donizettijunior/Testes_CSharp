@@ -60,8 +60,25 @@ namespace Questao1
                                             depositoInicial = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
                                         }
 
-                                        _listaContas.Add(new ContaBancaria(numero, titular, depositoInicial));
-                                        MensagemAlerta("Conta Cadastrada com Sucesso! ");
+                                        int cursorTop = Console.CursorTop;
+                                        Console.WriteLine("");
+                                        Console.SetCursorPosition(0, cursorTop);
+                                        Console.Write("Confirma os Dados do Cadastro (S/N)? ");
+                                        int cursorLeft = Console.CursorLeft;
+                                        Console.SetCursorPosition(cursorLeft, cursorTop);
+                                        string opc = Console.ReadLine();
+
+                                        Console.SetCursorPosition(0, cursorTop);
+                                        Console.Write(new string(' ', 50));
+
+                                        if ((opc != null) && (opc.ToUpper() == "S"))
+                                        {
+                                            _listaContas.Add(new ContaBancaria(numero, titular, depositoInicial));
+                                            MensagemAlerta("Conta Cadastrada com Sucesso! ");
+                                        }
+                                        else
+                                            MensagemAlerta("Conta NÃO Cadastrada! ");
+
                                     }
                                     catch {
                                         MensagemAlerta("Erro ao validar primeiro depósito. Conta Não Cadastrada!");

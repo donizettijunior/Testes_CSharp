@@ -258,7 +258,8 @@ namespace Questao5.Infrastructure.Business
                     datamovimento
                 };
 
-                return _contabancariaservice.SetIdempotencia(obj.ToString());
+                string json = JsonConvert.SerializeObject(obj);
+                return _contabancariaservice.SetIdempotencia(json);
             }
         }
 

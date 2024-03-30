@@ -218,14 +218,22 @@ namespace Questao5.Infrastructure.Services
         {
             try
             {
-                string query = " select chave_idempotencia              " +
-                               "   from idempotencia                    " +
-                               " where requisicao like '%idrequisicao = " + idrequisicao + "%'";
+                string query = " select chave_idempotencia, requisicao " +
+                               "   from idempotencia                   " +
+                               " where requisicao like '%\"idrequisicao\":\"" + idrequisicao + "\"%'";
 
                 DataTable dt = _idatabasebootstrap.ExecuteQuery(query);
 
-                object requisicao = dt.Rows[0][0];
-                return requisicao != DBNull.Value ? requisicao.ToString() : null;
+                foreach (DataRow row in dt.Rows)
+                {
+                    dynamic objetoRecuperado = JsonConvert.DeserializeObject(row["requisicao"].ToString());
+
+                    string _idrequisicao = objetoRecuperado.idrequisicao;
+                    if (_idrequisicao == idrequisicao)
+                        return row["chave_idempotencia"].ToString();
+                }
+
+                return null;
             }
             catch
             {
@@ -237,14 +245,22 @@ namespace Questao5.Infrastructure.Services
         {
             try
             {
-                string query = " select requisicao                      " +
-                               "   from idempotencia                    " +
-                               " where requisicao like '%idrequisicao = " + idrequisicao + "%'";
+                string query = " select requisicao   " +
+                               "   from idempotencia " +
+                               " where requisicao like '%\"idrequisicao\":\"" + idrequisicao + "\"%'";
 
                 DataTable dt = _idatabasebootstrap.ExecuteQuery(query);
 
-                object requisicao = dt.Rows[0][0];
-                return requisicao != DBNull.Value ? requisicao.ToString() : null;
+                foreach (DataRow row in dt.Rows)
+                {
+                    dynamic objetoRecuperado = JsonConvert.DeserializeObject(row["requisicao"].ToString());
+
+                    string _idrequisicao = objetoRecuperado.idrequisicao;
+                    if (_idrequisicao == idrequisicao)
+                        return row["requisicao"].ToString();
+                }
+
+                return null;
             }
             catch
             {
@@ -256,14 +272,22 @@ namespace Questao5.Infrastructure.Services
         {
             try
             {
-                string query = " select resultado                       " +
-                               "   from idempotencia                    " +
-                               " where requisicao like '%idrequisicao = " + idrequisicao + "%'";
+                string query = " select resultado, requisicao " +
+                               "   from idempotencia          " +
+                               " where requisicao like '%\"idrequisicao\":\"" + idrequisicao + "\"%'";
 
                 DataTable dt = _idatabasebootstrap.ExecuteQuery(query);
 
-                object requisicao = dt.Rows[0][0];
-                return requisicao != DBNull.Value ? requisicao.ToString() : null;
+                foreach (DataRow row in dt.Rows)
+                {
+                    dynamic objetoRecuperado = JsonConvert.DeserializeObject(row["requisicao"].ToString());
+
+                    string _idrequisicao = objetoRecuperado.idrequisicao;
+                    if (_idrequisicao == idrequisicao)
+                        return row["resultado"].ToString();
+                }
+
+                return null;
             }
             catch
             {
