@@ -4,6 +4,7 @@ using System.Net;
 
 public class Program
 {
+    private static int cursortoptelarequisicao = 0;
     private static string ano = "";
     private static string time1 = "";
     private static string time2 = "";
@@ -32,8 +33,28 @@ public class Program
                 {
                     case 1: //*** Nova Requisição
                         {
-                            MontarTelaRequisicao();
-                            get();
+                            while (true)
+                            {
+                                MontarTelaRequisicao();
+
+                                int cursorTop = Console.CursorTop;
+                                Console.WriteLine("");
+                                Console.SetCursorPosition(0, cursorTop);
+                                Console.Write("Confirma Parametros Informados (S/N)? ");
+                                int cursorLeft = Console.CursorLeft;
+                                Console.SetCursorPosition(cursorLeft, cursorTop);
+                                string opc = Console.ReadLine();
+
+                                Console.SetCursorPosition(0, cursorTop);
+                                Console.Write(new string(' ', 50));
+
+                                if ((opc != null) && (opc.ToUpper() == "S"))
+                                {
+                                    get();
+                                    break;
+                                }
+
+                            }
                             break;
                         }
                     case 2: //*** Pesquisar Gols por Time
@@ -50,14 +71,19 @@ public class Program
                                     Console.Write("Informe o Ano..: ");
                                     yearteam = int.Parse(Console.ReadLine());
 
-                                    int totalGoals = getTotalScoredGoals(teamName, yearteam);
+                                    if (((teamName != null) && (teamName.Length > 0)) && (yearteam > 0))
+                                    {
+                                        int totalGoals = getTotalScoredGoals(teamName, yearteam);
 
-                                    Console.WriteLine("");
-                                    Console.WriteLine("Team " + teamName + " scored " + totalGoals.ToString() + " goals in " + yearteam);
+                                        Console.WriteLine("");
+                                        Console.WriteLine("Team " + teamName + " scored " + totalGoals.ToString() + " goals in " + yearteam);
 
-                                    Console.WriteLine("");
-                                    Console.WriteLine("Pressione ENTER para retornar...");
-                                    Console.ReadLine();
+                                        Console.WriteLine("");
+                                        Console.WriteLine("Pressione ENTER para retornar...");
+                                        Console.ReadLine();
+                                    }
+                                    else
+                                        MensagemAlerta("É obrigatório informar os campos Time e Ano. Verifique!");
                                 }
                                 catch
                                 {
@@ -128,7 +154,7 @@ public class Program
             page = 1;
 
             Console.WriteLine("");
-            Console.Write("*** Progresso da requisição: ?? de ??");
+            Console.Write("*** Progresso da requisição: CALCULANDO...");
             int poscursor = Console.CursorTop;
 
             while (true)
@@ -254,6 +280,11 @@ public class Program
 
     private static void MontarTelaRequisicao()
     {
+        if (cursortoptelarequisicao == 0)
+            cursortoptelarequisicao = Console.CursorTop;
+        else
+            Console.SetCursorPosition(0, cursortoptelarequisicao);
+
         Console.WriteLine("");
         Console.WriteLine("PARÂMETROS OPCIONAIS. Informe se julgar necessário");
         Console.WriteLine("");
@@ -273,17 +304,25 @@ public class Program
         Console.Write("Pagina..: ");
 
         Console.SetCursorPosition(10, cursorTop);
+        Console.Write(new string(' ', 50));
+        Console.SetCursorPosition(10, cursorTop);
         ano = Console.ReadLine();
 
         Console.SetCursorPosition(10, cursorTop + 1);
+        Console.Write(new string(' ', 50));
+        Console.SetCursorPosition(10, cursorTop + 1);
         time1 = Console.ReadLine();
 
+        Console.SetCursorPosition(10, cursorTop + 2);
+        Console.Write(new string(' ', 50));
         Console.SetCursorPosition(10, cursorTop + 2);
         time2 = Console.ReadLine();
 
         Console.SetCursorPosition(10, cursorTop + 3);
         try
         {
+            Console.Write(new string(' ', 50));
+            Console.SetCursorPosition(10, cursorTop + 3);
             page = int.Parse(Console.ReadLine());
         }
         catch {
