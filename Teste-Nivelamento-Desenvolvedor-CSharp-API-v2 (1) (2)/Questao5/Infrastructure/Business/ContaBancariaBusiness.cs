@@ -45,7 +45,7 @@ namespace Questao5.Infrastructure.Business
                         title = "Erro",
                         status = 400,
                         traceId = "api/ConsultaSaldo",
-                        errors = new { error = "Conta Corrente está INATIVA. Verifique!" },
+                        errors = new { error = "Conta Corrente INATIVA. Verifique!" },
                         Data = new RetornoSaldo
                         {
                             Saldo = 0,
@@ -60,7 +60,7 @@ namespace Questao5.Infrastructure.Business
                     title = "Erro",
                     status = 400,
                     traceId = "api/ConsultaSaldo",
-                    errors = new { error = "Conta Corrente INVÁLIDA. Verifique!" },
+                    errors = new { error = "Conta Corrente INVÁLIDA ou INEXISTENTE. Verifique!" },
                     Data = new RetornoSaldo
                     {
                         Saldo = 0,
@@ -170,7 +170,7 @@ namespace Questao5.Infrastructure.Business
                         title = "Erro",
                         status = 400,
                         traceId = "api/MovimentoContaCorrente",
-                        errors = new { error = "Conta Corrente está INATIVA. Verifique!" },
+                        errors = new { error = "Conta Corrente INATIVA. Verifique!" },
                         Data = new object()
                     };
             }
@@ -181,7 +181,7 @@ namespace Questao5.Infrastructure.Business
                     title = "Erro",
                     status = 400,
                     traceId = "api/MovimentoContaCorrente",
-                    errors = new { error = "Conta Corrente INVÁLIDA. Verifique!" },
+                    errors = new { error = "Conta Corrente INVÁLIDA ou INEXISTENTE. Verifique!" },
                     Data = new object()
                 };
         }

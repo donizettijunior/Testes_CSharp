@@ -196,8 +196,7 @@ namespace Questao5.Infrastructure.Services
             {
                 string query = " select idcontacorrente                   " +
                                "   from contacorrente                     " +
-                               " where numero = '" + nrocontacorrente + "'" +
-                               "   and ativo  = 1";
+                               " where numero = '" + nrocontacorrente + "'" ;
 
                 DataTable dt = _idatabasebootstrap.ExecuteQuery(query);
 
